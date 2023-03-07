@@ -78,7 +78,7 @@ module.exports = {
             );
 
             const categoryEmbed = new EmbedBuilder()
-            .setTitle(`${formatString(directory)} commands`)
+            .setTitle(`***${formatString(directory)} commands***`)
             .setDescription(
                 `A list of all the commands categorized under ${directory}`
             )
