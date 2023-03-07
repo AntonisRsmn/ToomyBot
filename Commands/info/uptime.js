@@ -12,7 +12,7 @@ module.exports = {
         const seconds = Math.floor(client.uptime / 1000) % 60
 
         const embed = new EmbedBuilder()
-        .setTitle(`__${client.user.username}'s Uptime__`)
+        .setTitle(`***${client.user.username}'s Uptime***`)
         .setColor("#fffffe")
         .setTimestamp()
         .addFields(
