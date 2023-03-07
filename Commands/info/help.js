@@ -68,13 +68,13 @@ module.exports = {
 
         const collector = initialMessage.createMessageComponentCollector({
             filter,
-            compontentType: ComponentType.SelectMenu,
+            compontentType: ComponentType.StringSelect,
         });
 
-        collector.on("collect", async (i) => {
+        collector.on("collect", (i) => {
             const [directory] = i.values;
             const category = categories.find(
-                (x) => directory.toLowerCase() === directory
+                (x) => x.directory.toLowerCase() === directory
             );
 
             const categoryEmbed = new EmbedBuilder()
