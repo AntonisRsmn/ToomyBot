@@ -86,7 +86,7 @@ module.exports = {
             .addFields(
                 category.commands.map((cmd) => {
                     return {
-                        name: `\`${cmd.name}\``,
+                        name: `***${cmd.name}***`,
                         value: cmd.description,
                         inline: true,
                     };
