@@ -8,7 +8,7 @@ module.exports = {
     .addChannelOption(option =>
         option.setName("channel")
         .setDescription("The channel to lock.")
-        .setRequired(false)
+        .setRequired(true)
         )
     .addStringOption(option =>
         option.setName("reason")
@@ -16,11 +16,10 @@ module.exports = {
         ),
 
     async execute (interaction) {
-        const { guild, channel, options } = interaction;
+        const { guild, options } = interaction;
 
+        const channel = options.getChannel("channel");
         const reason = options.getString("reason") || "No reason provided";
-
-        channel.permissionOverwrites.create(interaction.guild.id, { SendMessages: false })
 
         const errEmbed = new EmbedBuilder()
         .setDescription(`The channel ***${channel}*** is already locked.`)
@@ -31,6 +30,8 @@ module.exports = {
             embeds: [errEmbed],
             ephemeral: true
         })
+
+        channel.permissionOverwrites.create(interaction.guild.id, { SendMessages: false })
 
         const embed = new EmbedBuilder()
         .setDescription(`The channel ***${channel}*** has been locked with reson ***${reason}***`)

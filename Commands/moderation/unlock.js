@@ -8,12 +8,13 @@ module.exports = {
     .addChannelOption(option =>
         option.setName("channel")
         .setDescription("The channel to unlock.")
+        .setRequired(true)
     ),
 
     async execute (interaction) {
-        const { guild, channel, options } = interaction;
+        const { guild, options } = interaction;
 
-        channel.permissionOverwrites.create(interaction.guild.id, { SendMessages: null })
+        const channel = options.getChannel("channel");
 
         const errEmbed = new EmbedBuilder()
         .setDescription(`The channel ***${channel}*** is already unlocked.`)
@@ -24,6 +25,8 @@ module.exports = {
             embeds: [errEmbed],
             ephemeral: true
         })
+
+        channel.permissionOverwrites.create(interaction.guild.id, { SendMessages: null })
 
         const embed = new EmbedBuilder()
         .setDescription(`The channel ***${channel}*** has been unlocked`)
