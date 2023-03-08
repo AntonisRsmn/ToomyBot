@@ -7,8 +7,8 @@ const { loadEvents } = require("./Handlers/eventHandler");
 const { loadCommands } = require("./Handlers/commandHandler");
 
 const client = new Client({
-    intents: [Guilds, GuildMembers, GuildMessages],
-    partials: [User, Message, GuildMember, ThreadMember],
+    intents: [Guilds, GuildMembers, GuildMessages, MessageContent],
+    partials: [User, Message, GuildMember, ThreadMember, Channel],
 });
 
 client.commands = new Collection();

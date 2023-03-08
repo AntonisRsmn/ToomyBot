@@ -8,7 +8,7 @@ module.exports = {
         const emojis = {
             info:"📝",
             moderation: "🛠",
-            general: "⚙",
+            fun: "🎮",
         };
 
         const directories = [
