@@ -5,7 +5,7 @@ const fetch= (...args) => import("node-fetch").then(({ default: fetch}) => fetch
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("meme")
-        .setDescription("Get a meme")
+        .setDescription("Sends some funny memes")
         .addStringOption(option => 
             option.setName("platform")
                 .setDescription("Meme platform")
